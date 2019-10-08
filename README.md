@@ -18,3 +18,7 @@ categories:
  - xxx
 ---
 ```
+
+# dev
+
+需要拉取reco主题代码到.vuepress/theme
