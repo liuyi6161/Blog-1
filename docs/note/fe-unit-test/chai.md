@@ -1,6 +1,10 @@
 ---
 title: chai.js笔记
 sidebarDepth: 2
+tags:
+ - 单元测试
+categories:
+ - 笔记
 ---
 ## BDD
 

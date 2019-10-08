@@ -17,10 +17,10 @@ module.exports = {
     },
     nav: [
       { text: 'Home', link: '/', icon: 'reco-home' },
-      { text: 'Notes', link: '/note/', icon: 'reco-document'},
+      { text: 'Notes', link: '/note/', icon: 'reco-document' },
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
-      { text: 'PhotoAlbum', link: 'http://zsw0407.gitee.io/images/index.html', icon: 'reco-blog'},
-      { text: 'Contact', 
+      { text: 'PhotoAlbum', link: 'http://photo.smallsunnyfox.com/', icon: 'reco-blog'},
+      { text: 'Contact',
         icon: 'reco-message',
         items: [
           { text: 'GitHub', link: 'https://github.com/smallsunnyfox', icon: 'reco-github' },
@@ -38,41 +38,51 @@ module.exports = {
         text: 'Tag' // 默认 “标签”
       }
     },
-    logo: 'http://zsw0407.gitee.io/images/images/blog/head.png',
+    logo: '/head.png',
     // 搜索设置
     search: true,
     searchMaxSuggestions: 10,
     // 自动形成侧边导航
     sidebarDepth: 1,
     displayAllHeaders: false,
-    sidebar: [
-      {
-        title: 'HTML5',
-        collapsable: true,
-        children: [
-          '/note/html5/HTML5的语义元素',
-          '/note/html5/HTML5多媒体标签',
-          '/note/html5/HTML5表单元素',
-          '/note/html5/HTML5中的API',
-          '/note/html5/Canvas'
-        ]
-      },
-      {
-        title: '前端单元测试',
-        collapsable: true,
-        children: [
-          '/note/fe-unit-test/chai',
-          '/note/fe-unit-test/mocha',
-          '/note/fe-unit-test/vueTestUtils'
-        ]
-      }
-    ],
+    sidebar: {
+      '/note/': [
+        {
+          title: 'HTML5',
+          collapsable: false,
+          children: [
+            'html5/HTML5的语义元素',
+            'html5/HTML5多媒体标签',
+            'html5/HTML5表单元素',
+            'html5/HTML5中的API',
+            'html5/Canvas'
+          ]
+        },
+        {
+          title: 'CSS',
+          collapsable: false,
+          children: [
+            'css/css3新特性',
+            'css/css3Flip'
+          ]
+        },
+        {
+          title: '前端单元测试',
+          collapsable: false,
+          children: [
+            'fe-unit-test/chai',
+            'fe-unit-test/mocha',
+            'fe-unit-test/vueTestUtils'
+          ]
+        }
+      ]
+    },
     // 最后更新时间
     lastUpdated: 'Last Updated',
     // 作者
     author: '橘子',
     // 备案号
-    // record: 'xxxx',
+    record: '豫ICP备19035192号',
     // 项目开始时间
     startYear: '2019',
     /**
@@ -80,7 +90,7 @@ module.exports = {
      */
 
     // keyPage: {
-    //   keys: ['your password'],
+    //   keys: ['121023'],
     //   color: '#42b983',
     //   lineColor: '#42b983'
     // },
@@ -93,7 +103,8 @@ module.exports = {
       appId: 'XDwlSXS2pD137bPrPpwQaqqD-gzGzoHsz',// your appId
       appKey: 'CQ8FKrMUP76LwycPcKlDoRqV', // your appKey
       placeholder: '是时候展现真正的技术了',
-      avatar: 'wavatar'
+      avatar: 'wavatar',
+      serverUrl: 'https://leanserver.smallsunnyfox.com'
     }
   },
   markdown: {

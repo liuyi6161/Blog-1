@@ -1,5 +1,9 @@
 ---
 title: HTML5中的API
+tags:
+ - Html5
+categories:
+ - 笔记
 ---
 
 ## 获取页面元素
@@ -41,7 +45,7 @@ title: HTML5中的API
 <br><br>
 <input type="file" id="upLoadImg">
 <br><br>
-<img id="showLogo" style="width:150px;height:150px;" src="http://zsw0407.gitee.io/images/images/blog/head.png"/>
+<img id="showLogo" style="width:150px;height:150px;" src="http://photo.smallsunnyfox.com/images/blog/head.png"/>
 <script>
   var file_btn = document.querySelector("#upLoadImg");
   var logo_wrap = document.querySelector("#showLogo");

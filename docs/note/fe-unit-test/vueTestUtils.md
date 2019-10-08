@@ -1,5 +1,9 @@
 ---
 title: VueTestUtils笔记
+tags:
+ - 单元测试
+categories:
+ - 笔记
 ---
 
 [官网](https://vue-test-utils.vuejs.org/zh/)

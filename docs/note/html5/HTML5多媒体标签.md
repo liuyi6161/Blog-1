@@ -1,5 +1,9 @@
 ---
 title: HTML5多媒体标签
+tags:
+ - Html5
+categories:
+ - 笔记
 ---
 
 ## audio标签
@@ -24,7 +28,7 @@ title: HTML5多媒体标签
 ```
 ### 浏览器支持
 
-![](http://zsw0407.gitee.io/images/images/blog/H5/audio_explorer.png)
+![](http://photo.smallsunnyfox.com/images/blog/H5/audio_explorer.png)
 
 
 ## video标签
@@ -54,4 +58,4 @@ title: HTML5多媒体标签
 
 ### 浏览器支持
 
-![](http://zsw0407.gitee.io/images/images/blog/H5/video_explorer.png)
+![](http://photo.smallsunnyfox.com/images/blog/H5/video_explorer.png)

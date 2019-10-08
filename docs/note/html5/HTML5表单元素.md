@@ -1,6 +1,10 @@
 ---
 title: HTML5表单元素
 sidebarDepth: 2
+tags:
+ - Html5
+categories:
+ - 笔记
 ---
 ## 新的表单元素
 
@@ -48,6 +52,7 @@ sidebarDepth: 2
 1. 表单验证触发`oninvalid`事件
 2. 通过`setCustomValidity`方法设置修改内容
 ```html
+
 <form action="#" method="get">
 		<input type="text" name="uname" pattern="^\d{4,11}" required class="uname">
 		<input type="submit" name="">

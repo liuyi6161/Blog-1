@@ -1,10 +1,10 @@
 ---
 home: true
-bgImage: 'http://zsw0407.gitee.io/images/images/blog/pg5.png'
+bgImage: '/pg5.png'
 bgImageStyle: {
   height: '400px'
 }
-faceImage: 'http://zsw0407.gitee.io/images/images/blog/head.png'
+faceImage: '/head.png'
 heroImage: /hero.png
 heroImageStyle: {
   maxWidth: '600px',
