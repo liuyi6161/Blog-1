@@ -1,5 +1,10 @@
 ---
 title: Canvas
+tags:
+ - Canvas
+ - Html5
+categories:
+ - 笔记
 ---
 
 ## 绘图工具

@@ -1,5 +1,9 @@
 ---
 title: Mocha笔记
+tags:
+ - 单元测试
+categories:
+ - 笔记
 ---
 
 ## 断言

@@ -8,7 +8,7 @@
   },
   "author": "zsw",
   "dependencies": {
-    "vuepress-theme-reco": "^1.0.8-alpha.3"
+    "vuepress-theme-reco": "^1.0.9-alpha.8"
   },
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "^1.0.2",
