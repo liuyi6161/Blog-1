@@ -2,13 +2,11 @@
 <template>
   <div>
     <div class="banniang-container" v-show="isLoaded">
-      <transition name="fade">
-        <div class="messageBox" v-show="isShowMessageBox" @click="isShowMessageBox=false">
-          {{ message }}
-        </div>
-      </transition>
+      <div class="messageBox" v-show="isShowMessageBox" @click="isShowMessageBox=false">
+        {{ message }}
+      </div>
       <div class="operation">
-        <img class="message" src="./images/message.png" @mouseover="isShowMessageBox=true" @mouseleave="isShowMessageBox=false">
+        <img class="message" src="./images/message.png" @click="isShowMessageBox=!isShowMessageBox">
         <img class="skin" src="./images/theme.png" @click="changeTheme" @mouseover="hoverChangeTheme" @mouseleave="leaveChangeTheme">
         <img class="close" src="./images/close.png" @click="closeBanNiang" @mouseover="hoverCloseBanNiang" @mouseleave="leaveCloseBanNiang">
       </div>
@@ -89,11 +87,11 @@
       },
       hoverChangeTheme () {
         this.message = '好吧，希望你能喜欢我的其他伙伴'
-        this.isShowMessageBox = true
       },
       leaveChangeTheme () {
-        this.message = this.defaultMessage
-        this.isShowMessageBox = false
+        setTimeout(() => {
+          this.message = this.defaultMessage
+        }, 1000);
       },
       closeBanNiang () {
         this.isLoaded = false
@@ -101,11 +99,11 @@
       },
       hoverCloseBanNiang () {
         this.message = '你知道我喜欢吃什么吗？痴痴地望着你'
-        this.isShowMessageBox = true
       },
       leaveCloseBanNiang () {
-        this.message = this.defaultMessage
-        this.isShowMessageBox = false
+        setTimeout(() => {
+          this.message = this.defaultMessage
+        }, 1000);
       },
       showBanNiang () {
         this.isLoaded = true
@@ -170,7 +168,6 @@
       background-color lighten($accentColor, 50%)
       color $textColor
       opacity 0.7
-      transition display .5s
     .operation
       img 
         cursor pointer
@@ -193,10 +190,4 @@
       opacity 0.9
       z-index 99999
       pointer-events none
-  .fade-enter,.fade-leave-to
-    opacity: 0;
-  .fade-enter-to,.fade-leave
-    opacity: 0.7;
-  .fade-enter-active,.fade-leave-active
-    transition: all .5s linear;
 </style>
