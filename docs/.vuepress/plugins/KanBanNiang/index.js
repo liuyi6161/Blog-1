@@ -10,7 +10,7 @@ module.exports = (options, context) => ({
         position: 'fixed',
         right: '80px',
         bottom: '195px',
-        opacity: '0.7'
+        opacity: '0.5'
       },
       MODEL_STYLE: modelStyle || {
         position: 'fixed',
