@@ -1,4 +1,4 @@
-const { resolve } = require("path");
+const { resolve } = require('path')
 
 module.exports = (options, context) => ({
   define () {
@@ -22,6 +22,6 @@ module.exports = (options, context) => ({
     }
   },
   name: '@vuepress-reco/vuepress-plugin-kan-ban-niang',
-  enhanceAppFiles: resolve(__dirname, "enhanceAppFile.js"),
-  globalUIComponents: "KanBanNiang"
+  enhanceAppFiles: resolve(__dirname, './bin/enhanceAppFile.js'),
+  globalUIComponents: 'KanBanNiang'
 })
