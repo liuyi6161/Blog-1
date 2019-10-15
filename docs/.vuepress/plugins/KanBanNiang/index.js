@@ -9,8 +9,7 @@ module.exports = (options, context) => ({
       MESSAGE_STYLE: messageStyle || {
         position: 'fixed',
         right: '80px',
-        bottom: '195px',
-        opacity: '0.5'
+        bottom: '195px'
       },
       MODEL_STYLE: modelStyle || {
         position: 'fixed',
