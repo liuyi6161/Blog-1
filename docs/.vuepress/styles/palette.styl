@@ -1,5 +1,11 @@
 $accentColor = #FF66CC
 $textColor = #232521
+$textShadow = 0
+/* 
+$boxShadowHover = 0 2px 16px 0 rgba(0, 0, 0, 0.2)
+$textShadow = 0 2px 4px rgba(0, 0, 0, 0.2);
+$borderRadius = .25rem 
+*/
 
 $themePicker = {
 	colorName1: #0033FF, // 极浓海蓝
@@ -33,5 +39,11 @@ div[class*="language-"] {
   }
 }
 .info-wrapper .category-wrapper .category-item{
+  box-shadow: none!important;
+}
+.comments-wrapper .valine-wrapper #valine.v .vlist .vh .vcontent {
+  box-shadow: none!important;
+}
+.comments-wrapper .valine-wrapper #valine.v .vlist .vh .vmeta .vat {
   box-shadow: none!important;
 }
