@@ -117,5 +117,5 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  plugins: ['@vuepress/medium-zoom', 'flowchart', require('./plugins/KanBanNiang')]
+  plugins: ['@vuepress/medium-zoom', 'flowchart', require('./plugins/KanBanNiang'), require('./plugins/aplayer')]
 }  

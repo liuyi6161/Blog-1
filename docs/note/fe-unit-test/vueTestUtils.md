@@ -4,6 +4,7 @@ tags:
  - 单元测试
 categories:
  - 笔记
+date: 2019-07-01
 ---
 
 [官网](https://vue-test-utils.vuejs.org/zh/)

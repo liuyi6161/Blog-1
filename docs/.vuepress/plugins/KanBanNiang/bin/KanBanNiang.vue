@@ -112,6 +112,7 @@ export default {
     showBanNiang () {
       this.isLoaded = true
       this.displayBanNiang = false
+      this.initBanNiang()
     },
     initBanNiang () {
       const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -134,7 +135,7 @@ export default {
       ajax.open('get', this.model[this.currentTheme])
       ajax.send()
       ajax.onreadystatechange = function () {
-        if (ajax.status == 404) {
+        if (ajax.status !== 500) {
           console.log('看板娘的CDN资源加载失败了，请稍后刷新页面重试！')
           document.querySelector('.kanbanniang').style.display = 'none'
         }
@@ -154,13 +155,13 @@ export default {
     position fixed
     right 70px
     bottom 6rem
-    background-color #fff
+    background-color rgba(231, 234, 241, 0.5)
     color $accentColor
     width 48px
     height 20px
     padding 10px
     cursor pointer
-    box-shadow 0 9px 17px 0 rgba(0,0,0,0.2)
+    // box-shadow 0 9px 17px 0 rgba(0,0,0,0.2)
     border-radius 4px
   .banniang-container
     position fixed
