@@ -38,15 +38,17 @@ export default {
 .aplayer .aplayer-miniswitcher
   background lighten($accentColor, 50%)
 .aplayer-info
-  color lighten($accentColor, 30%)
-  .aplayer-music .aplayer-author
-    color lighten($accentColor, 30%)
+  color lighten($accentColor, 30%)!important
   .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played
     background-color lighten($accentColor, 30%)!important
   .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb
     background-color lighten($accentColor, 30%)!important
+.aplayer-author
+  color lighten($accentColor, 30%)!important
 .aplayer-volume
   background-color lighten($accentColor, 30%)!important
 .aplayer-lrc
   color lighten($accentColor, 30%)
+.aplayer-icon:hover
+  color red
 </style>
