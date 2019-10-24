@@ -117,5 +117,26 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  plugins: ['@vuepress/medium-zoom', 'flowchart', require('./plugins/KanBanNiang'), require('./plugins/aplayer')]
+  plugins: [
+    'flowchart',
+    [
+      require('./plugins/KanBanNiang'),
+      {
+        theme: ['blackCat'],
+        width: 200,
+        height: 470,
+        modelStyle: {
+          position: 'fixed',
+          right: '110px',
+          bottom: '50px',
+          opacity: '0.9' 
+        },
+        messageStyle: {
+          position: 'fixed',
+          right: '110px',
+          bottom: '370px'
+        }
+      }
+    ]
+  ]
 }  
