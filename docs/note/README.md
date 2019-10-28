@@ -1,7 +1,7 @@
 ---
 title: '我的学习笔记'
 sidebar: true
-isShowComments: false
+isShowComments: true
 publish: false
 ---
 
