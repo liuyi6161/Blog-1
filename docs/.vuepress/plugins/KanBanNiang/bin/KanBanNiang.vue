@@ -198,10 +198,10 @@ export default {
       opacity 0.5
     .operation
       width 20px
-      height 92px
+      height 120px
       position fixed
       right 90px
-      bottom 65px
+      bottom 40px
       i
         font-size 20px
         cursor pointer
