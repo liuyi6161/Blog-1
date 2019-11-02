@@ -11,31 +11,91 @@
     </ul>
     <div class="aboutContent">
       <div v-show="cur === 'me'">
-        me
+        <ul>
+          <li style="background-color:midnightblue;height:21px;"></li>
+          <li style="background-color:blue;height:21px;"></li>
+          <li style="background-color:deepskyblue;height:21px;"></li>
+          <li style="background-color:cornflowerblue;height:21px;"></li>
+          <li style="background-color:lightskyblue;height:21px;"></li>
+        </ul>      
       </div>
       <div v-show="cur === 'tech'">
-        tech
+        <ul>
+          <li><img src="../public/star.png"><span>html</span></li>
+          <li><img src="../public/star.png"><span>css</span></li>
+          <li><img src="../public/star.png"><span>javascript</span></li>
+          <li><img src="../public/star.png"><span>vue.js</span></li>
+          <li><img src="../public/star.png"><span>jfinal</span></li>
+        </ul>
       </div>
       <div v-show="cur === 'work'">
-        work
+        <ul>
+          <li><img src="../public/star.png"><span>2019.06 ~ now：work at yioks</span></li>
+        </ul>
       </div>
       <div v-show="cur === 'orange'">
-        orange
+        橘子不是那种性格很好的宠物猫<br><br>
+        这反而让她更像个从孤儿院领养的孩子<br><br>
+        面对陌生环境胆小无助<br><br>
+        渴望外面的世界<br><br>
+        我没能给她足够的关怀<br><br>
+        然而她终究还是习惯了家的温暖<br><br>
+        橘子和大多数家猫一样都向往外面的自由<br><br>
+        喜欢看着窗外和天空<br><br>
+        也曾偷偷跑出去闯荡<br><br>
+        我也理解了大部分家长的想法<br><br>
+        有时候过于牢固的保护不是对孩子的溺爱和禁锢<br><br>
+        而是害怕孩子在外面不能好好生活的揪心<br><br>
+        🍊🍊🍊
       </div>
       <div v-show="cur === 'book'">
         我在看的
         <ul>
-          <li><img src="../public/star.png"> 我亦飘零久  --- 独木舟</li>
+          <li><img src="../public/star.png"><span>我亦飘零久</span></li>
+        </ul>
+        我喜欢的
+        <ul>
+          <li><img src="../public/star.png"><span>推理</span></li>
+          <li><img src="../public/star.png"><span>文学</span></li>
+          <li><img src="../public/star.png"><span>爱情</span></li>
+        </ul>
+        2019书单
+        <ul>
+          <li><img src="../public/star.png"><span>与原生家庭和解</span></li>
+          <li><img src="../public/star.png"><span>原则</span></li>
         </ul>
       </div>
       <div v-show="cur === 'tv'">
-        tv
+        我在追的
+        <ul>
+          <li><img src="../public/star.png"><span>大家的谎言</span></li>
+          <li><img src="../public/star.png"><span>绿豆传</span></li>
+          <li><img src="../public/star.png"><span>浪客行</span></li>
+        </ul>
+        我喜欢的
+        <ul>
+          <li><img src="../public/star.png"><span>Voice1、2、3 极度烧脑</span></li>
+          <li><img src="../public/star.png"><span>德鲁纳酒店 IU美颜</span></li>
+          <li><img src="../public/star.png"><span>美丽的世界 校园暴力</span></li>
+          <li><img src="../public/star.png"><span>男朋友 为爱情抵抗世界</span></li>
+          <li><img src="../public/star.png"><span>我的大叔</span></li>
+          <li><img src="../public/star.png"><span>经常请吃饭的漂亮姐姐 年度最甜</span></li>
+        </ul>
       </div>
       <div v-show="cur === 'movie'">
-        movie
+        我喜欢的
+        <ul>
+          <li><img src="../public/star.png"><span>陪你度过漫长岁月</span></li>
+          <li><img src="../public/star.png"><span>恋恋笔记本</span></li>
+          <li><img src="../public/star.png"><span>比悲伤更悲伤的故事（More than blue）</span></li>
+        </ul>
       </div>
       <div v-show="cur === 'game'">
-        game
+        游戏只有和朋友一起玩时才存在意义
+        <ul>
+          <li><img src="../public/star.png"><span>LOL</span></li>
+          <li><img src="../public/star.png"><span>CSGO</span></li>
+        </ul>
       </div>
     </div>
   </div>
