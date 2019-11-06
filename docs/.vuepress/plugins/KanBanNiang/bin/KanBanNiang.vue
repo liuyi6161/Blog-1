@@ -51,27 +51,27 @@ export default {
       model: {
         blackCat:
           // 'http://assets.smallsunnyfox.com/models/live2d-widget-model-hijiki/assets/hijiki.model.json',
-          'http://assets.smallsunnyfox.com/models/model/HyperdimensionNeptunia/histoire/index.json',
+          'https://assets.smallsunnyfox.com/models/model/HyperdimensionNeptunia/histoire/index.json',
         whiteCat:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-tororo/assets/tororo.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-tororo/assets/tororo.model.json',
         haru1:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-haru/01/assets/haru01.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-haru/01/assets/haru01.model.json',
         haru2:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-haru/02/assets/haru02.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-haru/02/assets/haru02.model.json',
         haruto:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-haruto/assets/haruto.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-haruto/assets/haruto.model.json',
         koharu:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-koharu/assets/koharu.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-koharu/assets/koharu.model.json',
         izumi:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-izumi/assets/izumi.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-izumi/assets/izumi.model.json',
         shizuku:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-shizuku/assets/shizuku.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-shizuku/assets/shizuku.model.json',
         wanko:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-wanko/assets/wanko.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-wanko/assets/wanko.model.json',
         miku:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-miku/assets/miku.model.json',
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-miku/assets/miku.model.json',
         z16:
-          'http://assets.smallsunnyfox.com/models/live2d-widget-model-z16/assets/z16.model.json'
+          'https://assets.smallsunnyfox.com/models/live2d-widget-model-z16/assets/z16.model.json'
       },
       // model的高宽
       style: {
