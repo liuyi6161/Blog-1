@@ -1,4 +1,5 @@
 module.exports = {
+  dest: 'blog',
   title: "latte and cat",
   description: 'study programs and record life',
   head: [
