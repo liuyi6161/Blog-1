@@ -8,9 +8,9 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#FF66CC' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'apple-touch-icon', href: '/LatteAndCat.png' }],
-    ['link', { rel: 'mask-icon', href: '/LatteAndCat.svg', color: '#FF66CC' }],
-    ['meta', { name: 'msapplication-TileImage', content: '/LatteAndCat.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/icons/LatteAndCat.png' }],
+    ['link', { rel: 'mask-icon', href: '/icons/LatteAndCat.svg', color: '#FF66CC' }],
+    ['meta', { name: 'msapplication-TileImage', content: '/icons/LatteAndCat.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
   // theme: 'reco',
@@ -47,7 +47,7 @@ module.exports = {
         text: 'Tag' // 默认 “标签”
       }
     },
-    logo: '/head.png',
+    logo: '/head2.png',
     // 搜索设置
     search: true,
     searchMaxSuggestions: 10,
