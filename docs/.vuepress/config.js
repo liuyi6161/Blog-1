@@ -80,7 +80,8 @@ module.exports = {
           title: 'JS',
           collapsable: true,
           children: [
-            'js/js数据类型'
+            'js/js数据类型',
+            'js/js对象'
           ]
         },
         {
