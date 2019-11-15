@@ -1,6 +1,7 @@
 <template>
   <div class="music-player">
     <aplayer 
+      ref="aplayer"
       :audio="audio" 
       :lrcType="lrcType" 
       fixed 
@@ -17,9 +18,11 @@
 import Vue from 'vue'
 import APlayer from '@moefe/vue-aplayer'
 Vue.use(APlayer)
-
 export default {
-  data() {
+  mounted () {
+    this.$refs.aplayer.hideLrc();
+  },
+  data () {
     return {
       audio: AUDIO,
       mini: MINI,

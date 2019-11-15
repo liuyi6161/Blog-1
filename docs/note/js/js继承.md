@@ -5,6 +5,7 @@ tags:
 categories:
  - 笔记
 date: 2019-11-12
+publish: false
 ---
 
 ## JS中继承的概念
