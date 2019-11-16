@@ -163,6 +163,7 @@ module.exports = {
         }
       }
     ],
+    require('./plugins/BgMusic'),
     [
       '@vuepress/pwa', 
       {
