@@ -1,24 +1,33 @@
 <template>
   <div class="reco-bgm-panel" :style="panelPosition">
     <div class="reco-bgm-box">
+      <!-- 播放器 -->
       <audio id="bgm" :src="audio[curIndex].url" ref="bgm" @ended="bgmEnded" @canplay="playReady" @timeupdate="timeUpdate"></audio>
+      <!-- 封面 -->
       <div class="reco-bgm-cover" @click="showBgmInfo" :style="`background-image:url(${audio[curIndex].cover}),url(${dcover})`">
+        <!-- mini操作栏 -->
         <div v-show="isMini" class="mini-operation">
           <i v-show="this.curPlayStatus === 'playing' && isMini" @click.stop="pauseBgm" class="reco-bgm reco-bgm-pause"></i>
-          <i v-show="this.curPlayStatus === 'paused' && isMini" @click.stop="playBgm" class="reco-bgm reco-bgm-play"></i>  
+          <i v-show="this.curPlayStatus === 'paused' && isMini" @click.stop="playBgm" class="reco-bgm reco-bgm-play"></i>
         </div>
+        <!-- 错误信息显示 -->
         <div v-show="isFault" class="falut-message">
-          播放失败  
+          播放失败
         </div>
       </div>
+      <!-- 歌曲信息栏 -->
       <div v-show="!isMini" class="reco-bgm-info">
+        <!-- 歌曲名 -->
         <div class="info-box"><i class="reco-bgm reco-bgm-music music"></i>{{ audio[curIndex].name }}</div>
+        <!-- 艺术家名 -->
         <div class="info-box"><i class="reco-bgm reco-bgm-artist"></i>{{ audio[curIndex].artist }}</div>
+        <!-- 歌曲进度条 -->
         <div class="reco-bgm-progress">
           <div class="progress-bar" @click="progressJump">
             <div class="bar" ref="pbar"></div>
           </div>
         </div>
+        <!-- 歌曲操作栏 -->
         <div class="reco-bgm-operation">
           <i class="reco-bgm reco-bgm-last last" @click="playLast"></i>
           <i v-show="curPlayStatus === 'playing'" @click="pauseBgm" class="reco-bgm reco-bgm-pause pause"></i>
@@ -31,6 +40,7 @@
           </div>
         </div>
       </div>
+      <!-- 缩放按钮 -->
       <div v-show="!isMini" @click="hideBgmInfo" class="reco-bgm-left-box">
         <i class="reco-bgm reco-bgm-left" ></i>
       </div>
@@ -40,11 +50,13 @@
 
 <script>
 let InterVal
+// 歌曲封面的旋转角度
 let rotateVal = 0
-function rotate() {
+// 歌曲封面的旋转
+function rotate () {
   InterVal = setInterval(function () {
-    let cover = document.querySelector(".reco-bgm-cover");
-    let btn = document.querySelector(".mini-operation");
+    const cover = document.querySelector('.reco-bgm-cover')
+    const btn = document.querySelector('.mini-operation')
     rotateVal += 1
     // 设置旋转属性(顺时针)
     cover.style.transform = 'rotate(' + rotateVal + 'deg)'
@@ -56,9 +68,9 @@ function rotate() {
     btn.style.transition = '0.1s linear'
   }, 100)
 }
-import default_cover from './assets/default_cover.png'
+import default_cover from './assets/d.png'
 export default {
-  data() {
+  data () {
     return {
       dcover: default_cover,
       panelPosition: POSITION,
@@ -67,14 +79,13 @@ export default {
       audio: AUDIOS,
       autoplay: AUTOPLAY,
       isMini: MINI,
-      rotateVal: 0,
       firstLoad: true,
       isMute: false,
       isFault: false
     }
   },
   watch: {
-    'curPlayStatus': function(newVal){
+    'curPlayStatus': function (newVal) {
       if (newVal === 'playing') {
         rotate()
       } else {
@@ -93,11 +104,12 @@ export default {
     },
     // audio canplay回调事件
     playReady () {
+      // 第一次加载时初始化音量条并处理自动播放事件
       if (this.firstLoad) {
-        let vbar_width = this.$refs.bgm.volume*100 + '%'
+        const vbar_width = this.$refs.bgm.volume * 100 + '%'
         this.$refs.vbar.style.width = vbar_width
         this.firstLoad = false
-        /* 自动播放 
+        /* 自动播放的处理
         if (this.autoplay) {
           let playPromise = this.$refs.bgm.play()
           if (playPromise !== undefined) {
@@ -119,10 +131,12 @@ export default {
     },
     // 播放
     playBgm () {
-      let playPromise = this.$refs.bgm.play()
+      const playPromise = this.$refs.bgm.play()
       if (playPromise !== undefined) {
         playPromise.then(res => {
+        // eslint-disable-next-line handle-callback-err
         }).catch(err => {
+          // 播放异常时显示播放失败并暂停播放
           this.isFault = true
           this.pauseBgm()
         })
@@ -134,7 +148,7 @@ export default {
     playNext () {
       this.$refs.pbar.style.width = 0
       this.isFault = false
-      if (this.curIndex >= this.audio.length-1) {
+      if (this.curIndex >= this.audio.length - 1) {
         this.curIndex = 0
       } else {
         this.curIndex++
@@ -145,7 +159,7 @@ export default {
       this.$refs.pbar.style.width = 0
       this.isFault = false
       if (this.curIndex <= 0) {
-        this.curIndex = this.audio.length-1
+        this.curIndex = this.audio.length - 1
       } else {
         this.curIndex--
       }
@@ -157,30 +171,35 @@ export default {
     },
     // 更新歌曲进度条
     timeUpdate () {
-      let total_time = this.$refs.bgm.duration
-      let cur_time = this.$refs.bgm.currentTime
-      let bar_width = cur_time/total_time*100 + "%"
+      const total_time = this.$refs.bgm.duration
+      const cur_time = this.$refs.bgm.currentTime
+      const bar_width = cur_time / total_time * 100 + '%'
       this.$refs.pbar.style.width = bar_width
     },
     // 点击进度条跳播
     progressJump (e) {
-      let total_time = this.$refs.bgm.duration
-      let percent = e.offsetX/150
+      const total_time = this.$refs.bgm.duration
+      const percent = e.offsetX / 150
+      // 歌曲未加载完成时点击进度条的错误处理
+      if (isNaN(total_time)) return
       this.$refs.bgm.currentTime = percent * total_time
     },
+    // 点击音量条修改音量
     volumeJump (e) {
-      let percent = e.offsetX/57
+      const percent = e.offsetX / 57
       if (percent >= 0 && percent <= 1) {
-        this.isMute = percent > 0 ? false : true
-        this.$refs.vbar.style.width = percent*100 + "%"
+        this.isMute = !(percent > 0)
+        this.$refs.vbar.style.width = percent * 100 + '%'
         this.$refs.bgm.volume = percent
       }
     },
+    // 静音
     muteBgm () {
       this.isMute = true
       this.$refs.vbar.style.width = 0
       this.$refs.bgm.volume = 0
     },
+    // 取消静音
     unMuteBgm () {
       this.isMute = false
       this.$refs.vbar.style.width = '100%'
@@ -196,7 +215,6 @@ export default {
   height 100px
   position fixed
   display flex
-  z-index 999999
   .reco-bgm-box
     height 80px
     background-color rgba(255, 255, 255, 0.7)

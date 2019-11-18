@@ -163,7 +163,32 @@ module.exports = {
         }
       }
     ],
-    require('./plugins/BgMusic'),
+    [
+      require('./plugins/BgMusic'),
+      {
+        audios: [
+          {
+            name: '장가갈 수 있을까',
+            artist: '咖啡少年',
+            url: 'https://assets.smallsunnyfox.com/music/1.mp3',
+            cover: 'https://assets.smallsunnyfox.com/music/1.jpg'
+          },
+          {
+            name: '강남역 4번 출구',
+            artist: 'Plastic / Fallin` Dild',
+            url: 'https://assets.smallsunnyfox.com/music/2.mp3',
+            cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
+          },
+          {
+            name: '用胳膊当枕头',
+            artist: '최낙타',
+            url: 'https://assets.smallsunnyfox.com/music/3.mp3',
+            cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+          }
+        ]
+      }
+    ]
+    ,
     [
       '@vuepress/pwa', 
       {
