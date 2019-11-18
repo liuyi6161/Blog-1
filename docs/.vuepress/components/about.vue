@@ -11,12 +11,12 @@
     </ul>
     <div class="aboutContent">
       <div v-show="cur === 'me'">
-        <ul>
-          <li style="background-color:midnightblue;height:21px;"></li>
-          <li style="background-color:blue;height:21px;"></li>
-          <li style="background-color:deepskyblue;height:21px;"></li>
-          <li style="background-color:cornflowerblue;height:21px;"></li>
-          <li style="background-color:lightskyblue;height:21px;"></li>
+        <ul class="colors">
+          <li class="midnightblue">midnightblue</li>
+          <li class="blue">blue</li>
+          <li class="deepskyblue">deepskyblue</li>
+          <li class="cornflowerblues">cornflowerblue</li>
+          <li class="lightskyblue">lightskyblue</li>
         </ul>      
       </div>
       <div v-show="cur === 'tech'">
@@ -46,7 +46,7 @@
         我也理解了大部分家长的想法<br><br>
         有时候过于牢固的保护不是对孩子的溺爱和禁锢<br><br>
         而是害怕孩子在外面不能好好生活的揪心<br><br>
-        🍊🍊🍊
+        <a href="https://photo.smallsunnyfox.com/" target="_blank" style="text-decoration:none;">🍊🍊🍊</a>
       </div>
       <div v-show="cur === 'book'">
         我在看的
@@ -68,8 +68,10 @@
       <div v-show="cur === 'tv'">
         我在追的
         <ul>
+          <li><img src="../public/star.png"><span>初恋那件小事 (刚开始有点土味，上了大学，真甜啊)</span></li>
+          <li><img src="../public/star.png"><span>山茶花开时 (舔到最后应有尽有)</span></li>
           <li><img src="../public/star.png"><span>大家的谎言</span></li>
-          <li><img src="../public/star.png"><span>绿豆传</span></li>
+          <li><img src="../public/star.png"><span>绿豆传 (真美男子)</span></li>
           <li><img src="../public/star.png"><span>浪客行</span></li>
         </ul>
         我喜欢的

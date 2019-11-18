@@ -168,13 +168,13 @@ module.exports = {
       {
         audios: [
           {
-            name: '장가갈 수 있을까',
+            name: '能够成家吗',
             artist: '咖啡少年',
             url: 'https://assets.smallsunnyfox.com/music/1.mp3',
             cover: 'https://assets.smallsunnyfox.com/music/1.jpg'
           },
           {
-            name: '강남역 4번 출구',
+            name: '江南地铁站4号出口',
             artist: 'Plastic / Fallin` Dild',
             url: 'https://assets.smallsunnyfox.com/music/2.mp3',
             cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
