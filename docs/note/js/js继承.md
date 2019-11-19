@@ -1,5 +1,6 @@
 ---
 title: JS继承
+sidebarDepth: 2
 tags:
  - js
 categories:
@@ -102,3 +103,48 @@ ES6中的 `对象扩展运算符: ...` 仿佛就是专门为了拷贝继承而�
 - 浅拷贝只是拷贝一层属性，没有内部对象
 - 深拷贝其实是利用了递归的原理，将对象的若干层属性拷贝出来
 
+### 原型式继承
+
+`Object.create(对象)`
+
+- 创建一个纯洁的对象（什么属性都没有）  
+  `Object.create(null)`
+- 创建一个继承自某个父对象的子对象
+  ```javascript
+    let parent = {
+      age: 18,
+      gender: 'male'
+    }
+    let student = Object.create(parent)
+  ```
+
+### 借用构造函数实现继承
+
+- 使用场景：适用于2种构造函数之间逻辑有相似的情况
+  ```js
+  function Animal(name, age, gender) {
+    this.name = name
+    this.age = age
+    this.gender = gender
+  }
+  function Person(name, age, gender, say) {
+    this.name = name
+    this.age = age
+    this.gender = gender
+    this.say = function () {}
+  }
+  ```
+- 原理：函数的call、apply调用方式
+  ```js
+  function Animal (name,age){
+    this.name=name;
+    this.age=age;
+  }
+  function Person(name,age,address){
+    Animal.call(this,name);
+    this.address=address;
+  }
+  ```
+- 局限性：Animal（父类构造函数）的代码必须完全适用于Person（子类构造函数）
+
+### 寄生继承、寄生组合继承
