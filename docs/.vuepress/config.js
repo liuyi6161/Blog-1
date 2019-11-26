@@ -160,6 +160,10 @@ module.exports = {
           position: 'fixed',
           right: '110px',
           bottom: '370px'
+        },
+        btnStyle: {
+          bottom: '60px',
+          right: '80px'
         }
       }
     ],
