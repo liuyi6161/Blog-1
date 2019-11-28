@@ -1,10 +1,13 @@
 <template>
-  <div class="reco-bgm-panel" :style="panelPosition">
-    <div class="reco-bgm-box">
-      <!-- 播放器 -->
-      <audio id="bgm" :src="audio[curIndex].url" ref="bgm" @ended="bgmEnded" @canplay="playReady" @timeupdate="timeUpdate"></audio>
+  <div class="reco-bgm-panel">
+    <!-- 播放器 -->
+    <audio id="bgm" :src="audio[curIndex].url" ref="bgm" @ended="bgmEnded" @canplay="playReady" @timeupdate="timeUpdate"></audio>
+    <div v-show="isFloat" @click="showBgmInfo" class="reco-float-box" :style="floatStyle">
+      <img :src="audio[curIndex].cover">
+    </div>
+    <div class="reco-bgm-box" v-show="!isFloat" :style="panelPosition">
       <!-- 封面 -->
-      <div class="reco-bgm-cover" @click="showBgmInfo" :style="`background-image:url(${audio[curIndex].cover}),url(${dcover})`">
+      <div class="reco-bgm-cover" @click="showBgmInfo" :style="`background-image:url(${audio[curIndex].cover})`">
         <!-- mini操作栏 -->
         <div v-show="isMini" class="mini-operation">
           <i v-show="this.curPlayStatus === 'playing' && isMini" @click.stop="pauseBgm" class="reco-bgm reco-bgm-pause"></i>
@@ -68,20 +71,35 @@ function rotate () {
     btn.style.transition = '0.1s linear'
   }, 100)
 }
-import default_cover from './assets/d.png'
 export default {
+  mounted() {
+    if (this.floatPosition === 'left') {
+      this.floatStyle = {
+        ...this.floatStyle,
+        left: '0'
+      }
+    } else {
+      this.floatStyle = {
+        ...this.floatStyle,
+        right: '0'
+      }
+    }
+  },
   data () {
     return {
-      dcover: default_cover,
       panelPosition: POSITION,
       curIndex: 0,
       curPlayStatus: 'paused',
       audio: AUDIOS,
       autoplay: AUTOPLAY,
-      isMini: MINI,
+      isFloat: false,
+      isMini: false,
       firstLoad: true,
       isMute: false,
-      isFault: false
+      isFault: false,
+      floatPosition: FLOAT_POSITION,
+      floatStyle: FLOAT_STYLE,
+      shrinkMode: SHRINK_MODE
     }
   },
   watch: {
@@ -96,11 +114,26 @@ export default {
   methods: {
     // 隐藏Bgm信息
     hideBgmInfo () {
-      this.isMini = true
+      const isMobile = !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+      if (isMobile) {
+        this.isFloat = true
+      } else {
+        if (this.shrinkMode === 'float') {
+          this.isFloat = true
+        } else if (this.shrinkMode === 'mini') {
+          this.isMini = true
+        }
+      }
     },
     // 显示Bgm信息
     showBgmInfo () {
-      this.isMini = false
+      if (this.shrinkMode === 'float') {
+        this.isFloat = false
+      } else if (this.shrinkMode === 'mini') {
+        this.isMini = false
+      }
     },
     // audio canplay回调事件
     playReady () {
@@ -213,9 +246,9 @@ export default {
 @require './assets/iconfont/iconfont.css'
 .reco-bgm-panel
   height 100px
-  position fixed
-  display flex
   .reco-bgm-box
+    position fixed
+    display flex
     height 80px
     background-color rgba(255, 255, 255, 0.7)
     border-radius 50px
@@ -331,18 +364,21 @@ export default {
       cursor pointer
       i
         color $accentColor
-  .reco-bgm-right-box
-    margin 37.5px 0 37.5px 4px
-    width 25px
-    height 25px
+  .reco-float-box
+    width 40px
+    height 40px
+    background-color $accentColor
+    position fixed
+    left 0
+    bottom 200px
+    border-top-right-radius 20px
+    border-bottom-right-radius 20px
     display flex
     justify-content center
     align-items center
     cursor pointer
-    background-color $accentColor
-    border-radius 50%
-    box-shadow 0 1px 6px 0 rgba(0,0,0,0.2)
-    i
-      font-size 15px
-      color #ffffff
+    img
+      width 30px
+      height 30px
+      border-radius 50%
 </style>
