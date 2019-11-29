@@ -71,7 +71,9 @@ function rotate () {
     btn.style.transition = '0.1s linear'
   }, 100)
 }
+import remember from './remember.js'
 export default {
+  mixins: [remember],
   mounted() {
     if (this.floatPosition === 'left') {
       this.floatStyle = {
@@ -139,8 +141,14 @@ export default {
     playReady () {
       // 第一次加载时初始化音量条并处理自动播放事件
       if (this.firstLoad) {
-        const vbar_width = this.$refs.bgm.volume * 100 + '%'
-        this.$refs.vbar.style.width = vbar_width
+        if (this.getVolume()) {
+          const percent =  this.getVolume()
+          this.$refs.vbar.style.width = percent * 100 + '%'
+          this.$refs.bgm.volume = percent
+        } else {
+          const vbar_width = this.$refs.bgm.volume * 100 + '%'
+          this.$refs.vbar.style.width = vbar_width
+        }
         this.firstLoad = false
         /* 自动播放的处理
         if (this.autoplay) {
@@ -224,19 +232,27 @@ export default {
         this.isMute = !(percent > 0)
         this.$refs.vbar.style.width = percent * 100 + '%'
         this.$refs.bgm.volume = percent
+        this.setVolume(this.$refs.bgm.volume)
       }
     },
     // 静音
     muteBgm () {
       this.isMute = true
+      this.setVolume(this.$refs.bgm.volume)
       this.$refs.vbar.style.width = 0
       this.$refs.bgm.volume = 0
     },
     // 取消静音
     unMuteBgm () {
       this.isMute = false
-      this.$refs.vbar.style.width = '100%'
-      this.$refs.bgm.volume = 1
+      if (this.getVolume()) {
+        const percent =  this.getVolume()
+        this.$refs.vbar.style.width = percent * 100 + '%'
+        this.$refs.bgm.volume = percent
+      } else {
+        this.$refs.vbar.style.width = '100%'
+        this.$refs.bgm.volume = 1
+      }
     }
   }
 }
@@ -251,6 +267,7 @@ export default {
     display flex
     height 80px
     background-color rgba(255, 255, 255, 0.7)
+    background-color var(--bgm-bg-color)
     border-radius 50px
     padding 10px
     box-shadow 0 1px 6px 0 rgba(0,0,0,0.2)
@@ -377,6 +394,7 @@ export default {
     justify-content center
     align-items center
     cursor pointer
+    box-shadow var(--box-shadow) 
     img
       width 30px
       height 30px
