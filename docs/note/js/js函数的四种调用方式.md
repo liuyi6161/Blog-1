@@ -5,6 +5,7 @@ tags:
 categories:
  - 笔记
 date: 2019-11-27
+publish: false
 ---
 
 > 在ES6之前，函数内部的this是由该函数的调用方式决定的，跟大小写和书写位置无关

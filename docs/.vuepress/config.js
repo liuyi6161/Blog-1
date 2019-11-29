@@ -95,7 +95,9 @@ module.exports = {
           collapsable: true,
           children: [
             'js/js数据类型',
-            'js/js对象'
+            'js/js对象',
+            'js/js继承',
+            'js/js原型链、闭包'
           ]
         },
         {
