@@ -60,6 +60,7 @@ function rotate () {
   InterVal = setInterval(function () {
     const cover = document.querySelector('.reco-bgm-cover')
     const btn = document.querySelector('.mini-operation')
+    const fm = document.querySelector('.falut-message')
     rotateVal += 1
     // 设置旋转属性(顺时针)
     cover.style.transform = 'rotate(' + rotateVal + 'deg)'
@@ -69,6 +70,10 @@ function rotate () {
     btn.style.transform = 'rotate(-' + rotateVal + 'deg)'
     // 设置旋转时的动画  匀速0.1s
     btn.style.transition = '0.1s linear'
+    // 设置旋转属性(逆时针)
+    fm.style.transform = 'rotate(-' + rotateVal + 'deg)'
+    // 设置旋转时的动画  匀速0.1s
+    fm.style.transition = '0.1s linear'
   }, 100)
 }
 import remember from './remember.js'
@@ -176,7 +181,11 @@ export default {
       if (playPromise !== undefined) {
         playPromise.then(res => {
         // eslint-disable-next-line handle-callback-err
+          if (this.isFault) {
+            this.isFault = false
+          }
         }).catch(err => {
+          console.log(err)
           // 播放异常时显示播放失败并暂停播放
           this.isFault = true
           this.pauseBgm()
