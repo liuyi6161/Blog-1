@@ -114,3 +114,25 @@ let s1 = new p.say()
   ```
 
 - 手动实现bind
+
+  - [js中自己实现bind函数的方式]('https://blog.csdn.net/lovefengruoqing/article/details/80186401')  
+  - [JavaScript 中 apply 、call 的详解]('https://github.com/lin-xin/blog/issues/7')
+  ```javascript
+  // bind方法放在函数的原型中
+  Function.prototype.bind = function () {
+    var self = this,                    // 保存原函数即fn
+    context = [].shift.call(arguments), // 保存需要绑定的this上下文
+    args = [].slice.call(arguments);    // 剩余的参数转为数组
+    return function () {                // 返回一个新函数
+      console.log(context, args, [].slice.call(arguments))
+      // 输出 {age:18} , [1, 2, 3] , [4, 5, 6]
+      self.apply(context,[].concat.call(args, [].slice.call(arguments)));
+    }
+  }
+  function fn(){
+    console.log(arguments);
+    // 输出的Arguments包含 1, 2, 3, 4, 5, 6
+  }
+  var _f1=fn.bind({age:18}, 1, 2, 3)
+  _f1(4,5,6)
+  ```
