@@ -97,7 +97,8 @@ module.exports = {
             'js/js数据类型',
             'js/js对象',
             'js/js继承',
-            'js/js原型链、闭包'
+            'js/js原型链、闭包',
+            'js/js函数的四种调用方式'
           ]
         },
         {
