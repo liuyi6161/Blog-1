@@ -53,7 +53,6 @@ categories:
 1. 表单验证触发`oninvalid`事件
 2. 通过`setCustomValidity`方法设置修改内容
 ```html
-
 <form action="#" method="get">
 		<input type="text" name="uname" pattern="^\d{4,11}" required class="uname">
 		<input type="submit" name="">
@@ -130,6 +129,8 @@ input 元素使用 datalist 预定义值
 - placeholder : 占位符
 - required : 必填项
 - autocomplete : 
+  - 规定输入字段是否应该启用自动完成功能
+  - 适用于以下类型的input标签: text, search, url, telephone, email, password, datepickers, range 以及 color。
 - form : 规定输入域所属的一个或多个(用空格分隔)表单
 - formaction : 
   - 用于描述表单提交的URL地址
