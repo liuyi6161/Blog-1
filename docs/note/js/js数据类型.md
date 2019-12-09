@@ -17,12 +17,32 @@ date: 2019-10-14
 ## JS数据类型
 
 - 基本数据类型：
-  - Number
-  - Boolean 
-  - String 
+  - Undefined
+    - 声明但未对其进行初始化时值即为undefined
+    - 引入是为了区分空对象指针与未经初始化的变量
+    - 对未初始化和未声明的变量执行typeof操作符都会返回undefined，这个结果有逻辑上的合理性(无论对哪种变量都不可能执行真正的操作)
   - Null
-  - Undefined：定义但未初始化
-- 引用数据类型：Function、Object（Array、Date、Function、Error、RegExp、Math、Number、String、Boolean、Globle）
+    - 表示一个空对象指针
+    - undefined值是派生自null的（null == undefined为true）
+    - 只要意在保存对象的变量还没有真正保存对象，就应该明确地让该变量保存为null
+  - Boolean
+  - Number
+    - 在进行算术计算时，所有以八进制和十六进制表示的数值最终都将被转换为十进制数值、
+    - 由于浮点数值需要的内存空间是保存整数值的两倍，因此ECMAScript会不失时机地将浮点数值转换为整数值
+    - 浮点数值的最高精度是17位小数，但在进行算术计算时其精确度远远不如整数。(0.1 + 0.2 = 0.30000000000000004)
+    - NaN的特点是
+      - 任何涉及NaN的操作都会返回NaN
+      - NaN与任何值都不相等包括它本身
+  - String 
+- 引用数据类型：Function、Object（Array、Date、Function、Error、RegExp、Math、Number、String、Boolean、Globle）  
+  Object的每个实例都具有下列方法和属性
+   - constructor: 保存着用于创建当前对象的函数
+   - hasOwnProperty(propertyName): 用于检查给定的属性在当前对象实例中是否存在
+   - isPrototypeOf(object): 用于检查传入的对象是否是当前对象的原型
+   - propertyIsEnumerable(propertyName): 用于检查给定的属性是否能够使用for-in语句来枚举
+   - toLocaleString(): 返回对象的字符串表示，该字符串与执行环境对应
+   - toString(): 返回对象的字符串表示
+   - valueOf(): 返回对象的字符串、数值或布尔值表示
 - ES6新增：Symbol（Symbol类型的对象永远不相等，即便创建它们的时候传入了相同的值，因此，可借助此特性解决属性名的冲突问题，这也是该数据类型存在的主要用途，意为标记）
 
 ## JS数据类型的判断
@@ -160,14 +180,20 @@ alert(error.constructor == Error);//true
 
     `Number()`在转换字符串时比较复杂而且不够合理，在处理整数的时候更常用`parseInt()`
 
-    转换规则：从第一个非空格字符开始，如果第一个非空格字符不是数字字符或者负号，就会返回NaN，如果第一个非空格字符是数字字符，就会继续解析知道解析完所有字符或者遇到了一个非数字字符。
+    转换规则：从第一个非空格字符开始，如果第一个非空格字符不是数字字符或者负号，就会返回NaN，如果第一个非空格字符是数字字符，就会继续解析直到解析完所有字符或者遇到了一个非数字字符。
 
     小数点不算做有效字符
 
-    第二个参数可以设置要解析的字符串的格式
+    第二个参数可以设置转换时使用的基数(即多少进制)
 
   - `parseFloat()`  
     转换规则与`parseInt()`相似，但是字符串中的第一个小数点是有效的，而第二个小数点都是无效的
+  
+    `parseInt()` 和 `parseFloat()`的区别  
+      - `parseFloat`的第一个小数点是有效的
+      - `parseFloat`始终都会忽略前导的0
+      - `parseFloat`只解析十进制值，因此他没有用第二个参数指定基数的用法，所以十六进制的字符串始终会被转换成0
+      - 如果字符串包含的是一个可解析为整数的值，`parseFloat`会返回整数
 
 ### String 
   - `toString()`
