@@ -5,5 +5,5 @@ bgImageStyle: {
   height: '400px'
 }
 faceImage: '/head2.png'
-isShowTitleInHome: false
+isShowTitleInHome: true
 ---

@@ -2,52 +2,76 @@
   <div class="reco-bgm-panel">
     <!-- 播放器 -->
     <audio id="bgm" :src="audio[curIndex].url" ref="bgm" @ended="bgmEnded" @canplay="playReady" @timeupdate="timeUpdate"></audio>
-    <div v-show="isFloat" @click="changeBgmInfo(false)" class="reco-float-box" :style="floatStyle">
-      <img :src="audio[curIndex].cover">
-    </div>
-    <div class="reco-bgm-box" v-show="!isFloat" :style="panelPosition">
-      <!-- 封面 -->
-      <div class="reco-bgm-cover" @click="changeBgmInfo(false)" :style="`background-image:url(${audio[curIndex].cover})`">
-        <!-- mini操作栏 -->
-        <div v-show="isMini" class="mini-operation">
-          <i v-show="this.curPlayStatus === 'playing' && isMini" @click.stop="pauseBgm" class="reco-bgm reco-bgm-pause"></i>
-          <i v-show="this.curPlayStatus === 'paused' && isMini" @click.stop="playBgm" class="reco-bgm reco-bgm-play"></i>
-        </div>
-        <!-- 错误信息显示 -->
-        <div v-show="isFault" class="falut-message">
-          播放失败
-        </div>
+    <transition
+      name="module"
+      @enter="setStyle"
+      @after-enter="unsetStyle"
+      @before-leave="setStyle">
+      <div v-show="isFloat" @click="changeBgmInfo(false)" class="reco-float-box" :style="floatStyle">
+        <img :src="audio[curIndex].cover">
       </div>
-      <!-- 歌曲信息栏 -->
-      <div v-show="!isMini" class="reco-bgm-info">
-        <!-- 歌曲名 -->
-        <div class="info-box"><i class="reco-bgm reco-bgm-music music"></i>{{ audio[curIndex].name }}</div>
-        <!-- 艺术家名 -->
-        <div class="info-box"><i class="reco-bgm reco-bgm-artist"></i>{{ audio[curIndex].artist }}</div>
-        <!-- 歌曲进度条 -->
-        <div class="reco-bgm-progress">
-          <div class="progress-bar" @click="progressJump">
-            <div class="bar" ref="pbar"></div>
+    </transition>
+    <transition
+      name="module"
+      @enter="setStyle"
+      @after-enter="unsetStyle"
+      @before-leave="setStyle">
+      <div class="reco-bgm-box" v-show="!isFloat" :style="panelPosition">
+        <!-- 封面 -->
+        <div class="reco-bgm-cover" @click="changeBgmInfo(false)" :style="`background-image:url(${audio[curIndex].cover})`">
+          <!-- mini操作栏 -->
+          <div v-show="isMini" class="mini-operation">
+            <i v-show="this.curPlayStatus === 'playing' && isMini" @click.stop="pauseBgm" class="reco-bgm reco-bgm-pause"></i>
+            <i v-show="this.curPlayStatus === 'paused' && isMini" @click.stop="playBgm" class="reco-bgm reco-bgm-play"></i>
+          </div>
+          <!-- 错误信息显示 -->
+          <div v-show="isFault" class="falut-message">
+            播放失败
           </div>
         </div>
-        <!-- 歌曲操作栏 -->
-        <div class="reco-bgm-operation">
-          <i class="reco-bgm reco-bgm-last last" @click="playLast"></i>
-          <i v-show="curPlayStatus === 'playing'" @click="pauseBgm" class="reco-bgm reco-bgm-pause pause"></i>
-          <i v-show="curPlayStatus === 'paused'" ref="play" @click="playBgm" class="reco-bgm reco-bgm-play play"></i>
-          <i class="reco-bgm reco-bgm-next next" @click="playNext"></i>
-          <i v-show="!isMute" @click="muteBgm" class="reco-bgm reco-bgm-volume1 volume"></i>
-          <i v-show="isMute" @click="unMuteBgm" class="reco-bgm reco-bgm-mute mute"></i>
-          <div class="volume-bar" @click="volumeJump">
-            <div class="bar" ref="vbar"></div>
+        <transition
+          name="module"
+          @enter="setStyle"
+          @after-enter="unsetStyle"
+          @before-leave="setStyle">
+          <!-- 歌曲信息栏 -->
+          <div v-show="!isMini" class="reco-bgm-info">
+            <!-- 歌曲名 -->
+            <div class="info-box"><i class="reco-bgm reco-bgm-music music"></i>{{ audio[curIndex].name }}</div>
+            <!-- 艺术家名 -->
+            <div class="info-box"><i class="reco-bgm reco-bgm-artist"></i>{{ audio[curIndex].artist }}</div>
+            <!-- 歌曲进度条 -->
+            <div class="reco-bgm-progress">
+              <div class="progress-bar" @click="progressJump">
+                <div class="bar" ref="pbar"></div>
+              </div>
+            </div>
+            <!-- 歌曲操作栏 -->
+            <div class="reco-bgm-operation">
+              <i class="reco-bgm reco-bgm-last last" @click="playLast"></i>
+              <i v-show="curPlayStatus === 'playing'" @click="pauseBgm" class="reco-bgm reco-bgm-pause pause"></i>
+              <i v-show="curPlayStatus === 'paused'" ref="play" @click="playBgm" class="reco-bgm reco-bgm-play play"></i>
+              <i class="reco-bgm reco-bgm-next next" @click="playNext"></i>
+              <i v-show="!isMute" @click="muteBgm" class="reco-bgm reco-bgm-volume1 volume"></i>
+              <i v-show="isMute" @click="unMuteBgm" class="reco-bgm reco-bgm-mute mute"></i>
+              <div class="volume-bar" @click="volumeJump">
+                <div class="bar" ref="vbar"></div>
+              </div>
+            </div>
           </div>
-        </div>
+        </transition>
+        <!-- 缩放按钮 -->
+        <transition
+          name="module"
+          @enter="setStyle"
+          @after-enter="unsetStyle"
+          @before-leave="setStyle">
+          <div v-show="!isMini" @click="changeBgmInfo(true)" class="reco-bgm-left-box">
+            <i class="reco-bgm reco-bgm-left" ></i>
+          </div>
+        </transition>
       </div>
-      <!-- 缩放按钮 -->
-      <div v-show="!isMini" @click="changeBgmInfo(true)" class="reco-bgm-left-box">
-        <i class="reco-bgm reco-bgm-left" ></i>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -77,6 +101,7 @@ function rotate () {
   }, 100)
 }
 import volume from './mixins/volume.js'
+import { setTimeout } from 'timers';
 export default {
   mixins: [volume],
   mounted() {
@@ -129,6 +154,15 @@ export default {
       } else if (!isMobile && this.shrinkMode === 'mini') {
         this.isMini = bool
       }
+    },
+    setStyle (items) {
+      items.style.transition = 'all .2s ease-in-out'
+      items.style.transform = 'translateX(-20px)'
+      items.style.opacity = 0
+    },
+    unsetStyle (items) {
+      items.style.transform = 'translateX(0)'
+      items.style.opacity = 1
     },
     // audio canplay回调事件
     playReady () {
@@ -258,4 +292,7 @@ export default {
 <style lang="stylus" scoped>
 @require './assets/iconfont/iconfont.css'
 @import './styles/index.styl'
+.module-enter, .module-leave-to
+  opacity 0
+  transform translateX(-20px)
 </style>
