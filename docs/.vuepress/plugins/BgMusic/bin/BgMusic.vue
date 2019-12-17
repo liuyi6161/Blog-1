@@ -2,20 +2,12 @@
   <div class="reco-bgm-panel">
     <!-- 播放器 -->
     <audio id="bgm" :src="audio[curIndex].url" ref="bgm" @ended="bgmEnded" @canplay="playReady" @timeupdate="timeUpdate"></audio>
-    <transition
-      name="module"
-      @enter="setStyle"
-      @after-enter="unsetStyle"
-      @before-leave="setStyle">
+    <module-transition>
       <div v-show="isFloat" @click="changeBgmInfo(false)" class="reco-float-box" :style="floatStyle">
         <img :src="audio[curIndex].cover">
       </div>
-    </transition>
-    <transition
-      name="module"
-      @enter="setStyle"
-      @after-enter="unsetStyle"
-      @before-leave="setStyle">
+    </module-transition>
+    <module-transition>
       <div class="reco-bgm-box" v-show="!isFloat" :style="panelPosition">
         <!-- 封面 -->
         <div class="reco-bgm-cover" @click="changeBgmInfo(false)" :style="`background-image:url(${audio[curIndex].cover})`">
@@ -29,11 +21,7 @@
             播放失败
           </div>
         </div>
-        <transition
-          name="module"
-          @enter="setStyle"
-          @after-enter="unsetStyle"
-          @before-leave="setStyle">
+        <module-transition duration=".15">
           <!-- 歌曲信息栏 -->
           <div v-show="!isMini" class="reco-bgm-info">
             <!-- 歌曲名 -->
@@ -59,19 +47,15 @@
               </div>
             </div>
           </div>
-        </transition>
+        </module-transition>
         <!-- 缩放按钮 -->
-        <transition
-          name="module"
-          @enter="setStyle"
-          @after-enter="unsetStyle"
-          @before-leave="setStyle">
+        <module-transition duration=".15">
           <div v-show="!isMini" @click="changeBgmInfo(true)" class="reco-bgm-left-box">
             <i class="reco-bgm reco-bgm-left" ></i>
           </div>
-        </transition>
+        </module-transition>
       </div>
-    </transition>
+    </module-transition>
   </div>
 </template>
 
@@ -101,9 +85,12 @@ function rotate () {
   }, 100)
 }
 import volume from './mixins/volume.js'
-import { setTimeout } from 'timers';
+import ModuleTransition from './ModuleTransition'
 export default {
   mixins: [volume],
+  components: {
+    ModuleTransition
+  },
   mounted() {
     if (this.floatPosition === 'left') {
       this.floatStyle = {
@@ -155,15 +142,6 @@ export default {
         this.isMini = bool
       }
     },
-    setStyle (items) {
-      items.style.transition = 'all .2s ease-in-out'
-      items.style.transform = 'translateX(-20px)'
-      items.style.opacity = 0
-    },
-    unsetStyle (items) {
-      items.style.transform = 'translateX(0)'
-      items.style.opacity = 1
-    },
     // audio canplay回调事件
     playReady () {
       // 第一次加载时初始化音量条并处理自动播放事件
@@ -188,6 +166,7 @@ export default {
           }
         } */
       }
+      // 播放状态下歌曲准备完成立即播放
       if (this.curPlayStatus === 'playing') {
         this.playBgm()
       }
@@ -292,7 +271,4 @@ export default {
 <style lang="stylus" scoped>
 @require './assets/iconfont/iconfont.css'
 @import './styles/index.styl'
-.module-enter, .module-leave-to
-  opacity 0
-  transform translateX(-20px)
 </style>
