@@ -190,6 +190,7 @@ export default {
     border-radius 4px
     // 其他主题识别不到变量时使用
     background-color rgba(231, 234, 241, 0.5)
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2)
     // reco主题
     box-shadow var(--box-shadow) 
     background-color var(--background-color)
