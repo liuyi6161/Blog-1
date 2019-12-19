@@ -27,7 +27,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/', icon: 'reco-home' },
       { text: 'Notes', link: '/note/', icon: 'reco-document' },
-      { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
+      { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
       { text: 'PhotoAlbum', link: 'http://photo.smallsunnyfox.com/', icon: 'reco-blog'},
       { text: 'About', link: '/about/', icon: 'reco-account'},
       { text: 'Contact',
