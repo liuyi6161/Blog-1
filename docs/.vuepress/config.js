@@ -109,6 +109,13 @@ module.exports = {
             'fe-unit-test/mocha',
             'fe-unit-test/vueTestUtils'
           ]
+        },
+        {
+          title: '微信小程序',
+          collapsable: true,
+          children: [
+            'wechat-mini-program/初识微信小程序',
+          ]
         }
       ]
     },
