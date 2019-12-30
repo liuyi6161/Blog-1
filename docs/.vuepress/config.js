@@ -125,22 +125,12 @@ module.exports = {
     author: '橘子',
     // 备案号
     record: '豫ICP备19035192号',
+    recordLink: 'http://www.beian.miit.gov.cn/',
     // 项目开始时间
     startYear: '2019',
     /**
-     * 密钥 (if your blog is private)
-     */
-
-    // keyPage: {
-    //   keys: ['121023'],
-    //   color: '#42b983',
-    //   lineColor: '#42b983'
-    // },
-
-    /**
      * valine 设置 (if you need valine comment )
      */
-
     valineConfig: {
       appId: 'XDwlSXS2pD137bPrPpwQaqqD-gzGzoHsz',// your appId
       appKey: 'CQ8FKrMUP76LwycPcKlDoRqV', // your appKey
