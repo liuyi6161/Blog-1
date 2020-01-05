@@ -9,7 +9,7 @@ date: 2019-07-01
 
 [官网](https://vue-test-utils.vuejs.org/zh/)
 
-[API](<https://vue-test-utils.vuejs.org/zh/api/>)
+[API](https://vue-test-utils.vuejs.org/zh/api/)
 
 [Wrapper](https://vue-test-utils.vuejs.org/zh/api/wrapper/)
 

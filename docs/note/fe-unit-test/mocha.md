@@ -124,6 +124,6 @@ describe('something slow', function() {
 
 接口：mocha的测绘接口类型指的是集中测试用例组织模式的选择。Mocha提供了BDD,TDD,Exports,QUnit和Require-style几种接口。
 
-[接口提供的具体方法](<https://segmentfault.com/a/1190000011362879#articleHeader22>)
+[接口提供的具体方法](https://segmentfault.com/a/1190000011362879#articleHeader22)
 
 ## [测试报告](https://segmentfault.com/a/1190000011362879#articleHeader23)
