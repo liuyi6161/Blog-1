@@ -102,6 +102,13 @@ module.exports = {
           ]
         },
         {
+          title: 'Vue.js',
+          collapsable: true,
+          children: [
+            'Vue/Vue基础笔记'
+          ]
+        },
+        {
           title: '前端单元测试',
           collapsable: true,
           children: [

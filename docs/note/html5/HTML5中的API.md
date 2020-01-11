@@ -46,7 +46,7 @@ categories:
 <br><br>
 <input type="file" id="upLoadImg">
 <br><br>
-<img id="showLogo" style="width:150px;height:150px;" src="http://photo.smallsunnyfox.com/images/blog/head.png"/>
+<img id="showLogo" style="width:150px;height:150px;" src="https://photo.smallsunnyfox.com/images/blog/head.png"/>
 <script>
   var file_btn = document.querySelector("#upLoadImg");
   var logo_wrap = document.querySelector("#showLogo");
@@ -104,11 +104,12 @@ reader.onload=function() {
 <br>
 当前网络状态 : <span id="onlineStatus" style="color: #f3f;">--</span>  
 <script>
-  var state = window.navigator.onLine;
-  if(state) {
-    document.querySelector("#onlineStatus").innerText = '在线呢！';
-  }else {
-    document.querySelector("#onlineStatus").innerText = '掉线啦！';
+  var state = window.navigator.onLine
+  var osid = '#onlineStatus'
+  if (state) {
+    document.querySelector(osid).innerText = '在线呢！';
+  } else {
+    document.querySelector(osid).innerText = '掉线啦！';
   }
 </script>
 
