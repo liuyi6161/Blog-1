@@ -157,3 +157,53 @@ reader.onload=function() {
   
   🎈window.sessionStorage.clear()
   ```
+
+## 拖放
+
+- 设置元素为可拖放
+  ```html
+  <img draggable="true">
+  ```
+- 在拖放的过程中会触发以下事件
+  - ondragstart - 用户开始拖动元素时触发
+  - ondrag - 元素正在拖动时触发
+  - ondragend - 用户完成元素拖动后触发
+- 释放目标时触发的事件:
+  - ondragenter - 当被鼠标拖动的对象进入其容器范围内时触发此事件
+  - ondragover - 当某被拖动的对象在另一对象容器范围内拖动时触发此事件
+  - ondragleave - 当被鼠标拖动的对象离开其容器范围内时触发此事件
+  - ondrop - 在一个拖动过程中，释放鼠标键时触发此事件
+- 在拖动元素时，每隔 350 毫秒会触发 ondragover 事件
+- 实例
+  1. 首先设置draggable="true"使元素可拖动
+  ```html
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img src="1.png" draggable="true" ondragstart="drag(event)" id="drag1" width="100" height="100"></div>
+  <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  ```
+  2. 开始拖动时设置被拖数据的数据类型和值
+  ```javascript
+  function drag(ev) {
+    ev.dataTransfer.setData("Text", ev.target.id);
+  }
+  ```
+  3. 规定在何处放置被拖动的数据
+  ```javascript
+  function allowDrop(ev) {
+    //默认地，无法将数据/元素放置到其他元素中。
+    //如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+    //调用 ondragover 事件的 event.preventDefault() 方法设置允许放置
+    ev.preventDefault();
+  }    
+  ```
+  4. 放置被拖数据
+  ```javascript
+  function drop(ev) {
+    // 调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+    ev.preventDefault();
+    // 通过 dataTransfer.getData("Text") 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。
+    var data = ev.dataTransfer.getData("Text");
+    // 把被拖元素追加到放置元素（目标元素）中
+    ev.target.appendChild(document.getElementById(data));
+  }
+  ```

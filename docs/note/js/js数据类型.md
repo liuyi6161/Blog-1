@@ -68,6 +68,7 @@ date: 2019-10-14
 var num = new Number(123);
 var str = new String('abcdef');
 var boolean = new Boolean(true);
+// 以上三种方式等同于new Object()，Object构造函数会根据传入值的类型返回相应基本包装类型的实例 
 ```
 
 ### 3.constructor 查看对象对应的构造函数
