@@ -130,6 +130,7 @@ module.exports = {
     lastUpdated: 'Last Updated',
     // 作者
     author: '橘子',
+    authorAvatar: '/head2.png',
     // 备案号
     record: '豫ICP备19035192号',
     recordLink: 'http://www.beian.miit.gov.cn/',
