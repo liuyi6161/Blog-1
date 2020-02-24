@@ -59,29 +59,26 @@
           <li><img src="../public/star.png"><span>文学</span></li>
           <li><img src="../public/star.png"><span>爱情</span></li>
         </ul>
-        2019书单
+        2020书单
         <ul>
-          <li><img src="../public/star.png"><span>与原生家庭和解</span></li>
-          <li><img src="../public/star.png"><span>原则</span></li>
+          <li><img src="../public/star.png"><span>万人如海一身藏</span></li>
+          <li><img src="../public/star.png"><span>春日序曲</span></li>
+          <li><img src="../public/star.png"><span>漫长的告别</span></li>
+          <li><img src="../public/star.png"><span>人生海海</span></li>
+          <li><img src="../public/star.png"><span>喜鹊谋杀案</span></li>
+          <li><img src="../public/star.png"><span>尤尔小屋的猫</span></li>
+          <li><img src="../public/star.png"><span>熊镇</span></li>
+          <li><img src="../public/star.png"><span>我爱这哭不出来的浪漫</span></li>
         </ul>
       </div>
       <div v-show="cur === 'tv'">
-        我在追的
+        2020追剧
         <ul>
-          <li><img src="../public/star.png"><span>初恋那件小事 (刚开始有点土味，上了大学，真甜啊)</span></li>
-          <li><img src="../public/star.png"><span>山茶花开时 (舔到最后应有尽有)</span></li>
-          <li><img src="../public/star.png"><span>大家的谎言</span></li>
-          <li><img src="../public/star.png"><span>绿豆传 (真美男子)</span></li>
+          <li><img src="../public/star.png"><span>金钱游戏</span></li>
+          <li><img src="../public/star.png"><span>如实陈述</span></li>
+          <li><img src="../public/star.png"><span>梨泰院Class</span></li>
+          <li><img src="../public/star.png"><span>检察官内传</span></li>
           <li><img src="../public/star.png"><span>浪客行</span></li>
-        </ul>
-        我喜欢的
-        <ul>
-          <li><img src="../public/star.png"><span>Voice1、2、3 极度烧脑</span></li>
-          <li><img src="../public/star.png"><span>德鲁纳酒店 IU美颜</span></li>
-          <li><img src="../public/star.png"><span>美丽的世界 校园暴力</span></li>
-          <li><img src="../public/star.png"><span>男朋友 为爱情抵抗世界</span></li>
-          <li><img src="../public/star.png"><span>我的大叔</span></li>
-          <li><img src="../public/star.png"><span>经常请吃饭的漂亮姐姐 年度最甜</span></li>
         </ul>
       </div>
       <div v-show="cur === 'movie'">
