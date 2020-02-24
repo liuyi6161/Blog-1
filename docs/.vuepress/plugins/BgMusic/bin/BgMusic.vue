@@ -122,7 +122,7 @@ export default {
       isFault: false,
       floatPosition: FLOAT_POSITION,
       floatStyle: FLOAT_STYLE,
-      shrinkMode: 'float'//SHRINK_MODE
+      shrinkMode: SHRINK_MODE
     }
   },
   watch: {

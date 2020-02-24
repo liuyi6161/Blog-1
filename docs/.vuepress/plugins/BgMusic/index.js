@@ -14,7 +14,8 @@ module.exports = (options, context) => ({
       SHRINK_MODE: shrinkMode || 'float',
       FLOAT_POSITION: floatPosition || 'left',
       FLOAT_STYLE: floatStyle || {
-        bottom: '200px'
+        bottom: '200px',
+        'z-index': '999999'
       }
     }
   },
