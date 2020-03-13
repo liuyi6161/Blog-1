@@ -72,7 +72,7 @@
         </ul>
       </div>
       <div v-show="cur === 'tv'">
-        2020追剧
+        我在追的
         <ul>
           <li><img src="../public/star.png"><span>金钱游戏</span></li>
           <li><img src="../public/star.png"><span>如实陈述</span></li>

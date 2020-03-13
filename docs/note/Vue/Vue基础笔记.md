@@ -6,7 +6,6 @@ tags:
  - Vue
 categories:
  - 笔记
-publish: false
 ---
 
 ## Vue模板语法
@@ -82,12 +81,37 @@ publish: false
     这其中包含 `event.preventDefault()` 的情况  -->
     <div v-on:scroll.passive="onScroll">...</div>
     ```
+- 使用`v-bind`绑定class和style
+  - 操作元素的 class 列表和内联样式是数据绑定的一个常见需求
+  - 在将 `v-bind` 用于 `class` 和 `style` 时, 表达式结果的类型除了字符串之外，还可以是对象或数组。
+  - 当在一个自定义组件上使用 class 属性时，这些 class 将被添加到该组件的根元素上面。这个元素上已经存在的 class 不会被覆盖。
+  - 当 `v-bind:style` 使用需要添加`浏览器引擎前缀`的 CSS 属性时，如 `transform`，`Vue.js` 会自动侦测并添加相应的前缀。
+  - 从 2.3.0 起你可以为 style 绑定中的属性提供一个包含多个值的数组，常用于提供多个带前缀的值
+  ```javascript
+  // 绑定HTML class
 
-## Vue计算属性
+  // 对象语法
+  <div v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
+  // 数组语法
+  <div v-bind:class="[activeClass, errorClass]"></div>
+  // 使用三元表达式切换样式
+  <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+
+  // 绑定内联样式
+
+  // 对象语法
+  <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+  // 数组语法 （将多个样式对象应用到同一个元素上）
+  <div v-bind:style="[baseStyles, overridingStyles]"></div>
+  // 多重值 （只会渲染数组中最后一个被浏览器支持的值。在本例中，如果浏览器支持不带浏览器前缀的 flexbox，那么就只会渲染 display: flex。）
+  <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
+  ```
+
+## 计算属性
 
 ### 使用场景
-模板内的表达式非常便利，但是设计它们的初衷是用于简单运算的。在模板中放入太多的逻辑会让模板过重且难以维护。  
-所以，对于任何复杂逻辑，你都应当使用计算属性。
+模板内的表达式 ===> 简单运算  
+复杂逻辑 ===> 计算属性
 
 ### 与方法的比较
 
@@ -118,3 +142,27 @@ publish: false
   ```
 
 ### 计算属性的setter
+
+```javascript
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+```
+
+## 侦听器
+
+### 使用场景
+
+需要在数据变化时执行异步或开销较大的操作时使用侦听器来响应数据的变化
+
