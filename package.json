@@ -1,5 +1,6 @@
 {
   "name": "lattee-and-cat",
+  "author": "zsw",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,28 +8,29 @@
     "doc": "docs"
   },
   "dependencies": {
-    "vuepress": "^1.0.3"
+    "vuepress": "^1.3.1"
   },
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-back-to-top": "^1.0.8",
+    "@vuepress-reco/vuepress-plugin-comments": "^1.0.13",
     "@vuepress-reco/vuepress-plugin-extract-code": "^1.0.3",
     "@vuepress-reco/vuepress-plugin-loading-page": "^1.0.5",
     "@vuepress-reco/vuepress-plugin-pagation": "^1.0.6",
-    "@vuepress-reco/vuepress-plugin-comments": "^1.0.13",
-    "@vuepress/plugin-medium-zoom": "1.2.0",
     "@vuepress/plugin-blog": "1.3.0",
+    "@vuepress/plugin-medium-zoom": "1.2.0",
+    "@vuepress/plugin-pwa": "1.2.0",
     "docsearch.js": "^2.5.2",
     "leancloud-storage": "3.13.2",
+    "md5": "2.2.1",
     "valine": "1.3.6",
     "vue-click-outside": "1.0.7",
-    "md5": "2.2.1",
-    "@vuepress/plugin-pwa": "1.2.0",
+    "vue-server-renderer": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
     "vuepress-plugin-flowchart": "^1.4.3"
   },
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "zsw"
+  }
 }
