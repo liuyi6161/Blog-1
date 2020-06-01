@@ -1,0 +1,29 @@
+name: blog deploy
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn install
+    - run: yarn build
+    
+    # npm 使用下面这种
+    # - run: npm ci
+    # - run: npm install vuepress
+    # - run: npm run build
+    
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+      	# 之前项目的私钥，对应的要填写正确
+        ACTIONS_DEPLOY_KEY: ${{secrets.187}}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: public
+        # PUBLISH_DIR: docs/.vuepress/dist
